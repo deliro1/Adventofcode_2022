@@ -1,13 +1,23 @@
 import { readFileSync } from "node:fs";
 
-const lines = readFileSync("input.txt", { encoding: "utf-8" }) // read day??.txt content
-  .replace(/\r/g, "") // remove all \r characters to avoid issues on Windows
-  .trim() // Remove starting/ending whitespace
-  .split("\n") // Split on newline
-  .map(Number); // Parse each line into a number
+const elf_cals = readFileSync("input.txt", { encoding: "utf-8" })
+  .replace(/\r/g, "")
+  .split("\n\n")
+
+
 
 function part1() {
   //do something here
+  let summed_cals= []
+  elf_cals.forEach(foods => {
+    let str_list = foods.split("\n")
+    let int_list = str_list.map(Number)
+    let sum_cals = int_list.reduce((summed, next) => summed + next, 0)
+    summed_cals.push(sum_cals)
+    console.log("")
+  });
+  console.log(summed_cals)
+  console.log(Math.max(...summed_cals))
 }
 
 function part2() {
