@@ -53,22 +53,72 @@ function part1(raw_input: string[]) {
 
     return game_points
   }
-
   raw_input.forEach(line => {
     score = score + get_outcome_points(line)
     console.log(score)
   });
-  console.log("Solution")
+  console.log("Solution Part 1:")
   console.log(score)
 
 }
 
 function part2(raw_input: string[]) {
+    let score = 0
 
+    function get_outcome_points(game_line: string){
+      let game_points = 0
+  
+      if (game_line.slice(-1) == 'X'){
+        game_points = game_points + 0
+        if (game_line.slice(0,1) == 'A'){
+          game_points = game_points + 3
+        }
+        if (game_line.slice(0,1) == 'B'){
+          game_points = game_points + 1
+        }
+        if (game_line.slice(0,1) == 'C'){
+          game_points = game_points + 2
+        }
+      }
+      if (game_line.slice(-1) == 'Y'){
+        game_points = game_points + 3
+        if (game_line.slice(0,1) == 'A'){
+          game_points = game_points + 1
+        }
+        if (game_line.slice(0,1) == 'B'){
+          game_points = game_points + 2
+        }
+        if (game_line.slice(0,1) == 'C'){
+          game_points = game_points + 3
+        }
+      }
+      if (game_line.slice(-1) == 'Z'){
+        game_points = game_points + 6
+        if (game_line.slice(0,1) == 'A'){
+          game_points = game_points + 2
+        }
+        if (game_line.slice(0,1) == 'B'){
+          game_points = game_points + 3
+        }
+        if (game_line.slice(0,1) == 'C'){
+          game_points = game_points + 1
+        }
+      }
+  
+      return game_points
+    }
+  
+    raw_input.forEach(line => {
+      score = score + get_outcome_points(line)
+      console.log(score)
+    });
+    console.log("Solution Part 2:")
+    console.log(score)
 }
 
 console.log("TEST INPUT:")
 part1(test_text);
+console.log(" ")
 part2(test_text);
 
 console.log("REAL INPUT:")
