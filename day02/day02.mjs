@@ -1,10 +1,10 @@
 import { readFileSync } from "node:fs";
 
-const input_text = readFileSync("V:/AoC/AoC2022/day02/input.txt", { encoding: "utf-8" })
+const input_text = readFileSync("V:/AoC/AoC2022/typescript/AOC2022/src/day01/input.txt", { encoding: "utf-8" })
   .replace(/\r/g, "")
   .split("\n")
 
-const test_text = readFileSync("V:/AoC/AoC2022/day02/test.txt", { encoding: "utf-8" })
+const test_text = readFileSync("V:/AoC/AoC2022/typescript/AOC2022/src/day02/test.txt", { encoding: "utf-8" })
   .replace(/\r/g, "")
   .split("\n")
 
@@ -24,6 +24,8 @@ function part1(raw_input) {
       if (game_line.slice(0) == 'C'){
         game_points = game_points + 6
       }
+      console.log("X")
+      console.log(game_points)
 
     }
     if (game_line.slice(-1) == 'Y'){
@@ -37,6 +39,8 @@ function part1(raw_input) {
       if (game_line.slice(0) == 'C'){
         game_points = game_points + 0
       }
+      console.log("Y")
+      console.log(game_points)
 
     }
     if (game_line.slice(-1) == 'Z'){
@@ -50,7 +54,10 @@ function part1(raw_input) {
       if (game_line.slice(0) == 'C'){
         game_points = game_points + 3
       }
+      console.log("Z")
+      console.log(game_points)
     }
+
     return game_points
   }
 
@@ -72,5 +79,5 @@ part1(test_text);
 part2(test_text);
 
 console.log("REAL INPUT:")
-part1(input_text);
-part2(input_text);
+//part1(input_text);
+//part2(input_text);
